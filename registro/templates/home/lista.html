@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+    <table class="unstriped">
+       <thead style="background: #AF13E1; ">
+          <tr>
+            <th width="100">ID</th>
+            <th>Nombre</th>
+            <th width="300">Activo</th>
+            <th width="300">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for proyectos in proyecto%}
+            <tr style="background: #F7DEFF">
+              <td>{{proyectos.id}}</td>
+              <td>{{proyectos.nombre}}</td>
+              <td>{{proyectos.activo}}e</td>
+              <td>
+                <div class="button-group">
+                    <a href="{% url 'home_app:actualizar' proyectos.id%}" class="secondary button" style="background: #D55AFC">modificar</a>
+                    <a href="{% url 'home_app:actualizar2' proyectos.id%}" class="warning button" style="background: #E288FF">activar</a>
+                    <a href="{% url 'home_app:eliminar' proyectos.id%}" class="alert button" style="background: #CF3DFE">eliminar</a>
+                </div>
+              </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a class="button expanded" style="background: #AF13E1; " href="{% url 'home_app:create'%}">Nuevo Proyecto</a>
+</ul>
+{% endblock content %}

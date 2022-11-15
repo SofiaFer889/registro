@@ -1,0 +1,8 @@
+<div style="background: #E8B2FF">
+    <h1>Actualizar activo</h1>
+
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button style="background: #C039E5" type="submit">actualizar</button>
+    </form>
+</div>

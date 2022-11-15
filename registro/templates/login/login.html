@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<html lang="es-ar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+    {% block css %}{% endblock css %}
+</head>
+<body style="background: #E8B2FF" >
+<div class='grid-x large-5'>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button style="background: #C039E5" type="submit">Acceder</button>
+        <li><a href="{% url 'login_app:create-user'%}">crear usuario</a></li>
+        <li><a href="{% url 'login_app:update-password'%}">recuperar contraseña</a></li>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+    <table class="unstriped">
+       <thead style="background: #AF13E1; ">
+          <tr>
+            <th width="100">ID</th>
+            <th>Username</th>
+            <th width="300">Nombre</th>
+            <th width="200">Activo</th>
+            <th width="200">Tipo</th>
+            <th width="300">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuario %}
+            <tr style="background: #F7DEFF">
+              <td>{{usuarios.id}}</td>
+              <td>{{usuarios.username}}</td>
+              <td>{{usuarios.nombre}}</td>
+              <td>{{usuarios.activo}}</td>
+              <td>{{usuarios.tipo}}</td>
+              <td>
+                <div class="button-group">
+                    <a href="{% url 'login_app:update-user' usuarios.id%}" class="secondary button" style="background: #D55AFC">modificar</a>
+                    <a href="{% url 'login_app:update2-user' usuarios.id%}" class="warning button" style="background: #E288FF">activar</a>
+                    <a href="{% url 'login_app:delate-user' usuarios.id%}" class="alert button" style="background: #CF3DFE">eliminar</a>
+                </div>
+              </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a class="button expanded" style="background: #AF13E1; " href="{% url 'login_app:create-user'%}">Nuevo Usuario</a>
+</ul>
+{% endblock content %}

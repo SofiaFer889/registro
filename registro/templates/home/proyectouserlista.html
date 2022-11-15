@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+    <table class="unstriped">
+       <thead style="background: #AF13E1; ">
+          <tr>
+            <th width="100">ID</th>
+            <th>Proyecto</th>
+            <th width="700">Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for proyectos_users in proyecto_user %}
+            <tr style="background: #F7DEFF">
+              <td>{{proyectos_users.id}}</td>
+              <td>{{proyectos_users.proyecto_id}}</td>
+              <td>{{proyectos_users.user_id}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a class="button expanded" style="background: #AF13E1; " href="{% url 'home_app:create-proyecto-user'%}">Nuevo Usuario Proyecto</a>
+
+</ul>
+{% endblock content %}
